@@ -1,33 +1,65 @@
-# ソフトウェア開発演習。
+# ソフトウェア開発演習
 
-## 構成案
+## 講義計画
 
-| 回  | 30分の講義                                                 | 60分の演習                                                                     | 主に使う既存教材                                                       | 追加教材                                     |
-| --- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------- |
-| 1   | バージョン管理の必要性、Gitの概要、コマンドライン入門      | `pwd`、`cd`、`ls`、`mkdir`、`cp`、`mv`、`rm`、簡単なVim操作                    | `vcs/`、`command/`                                                     | コマンドライン演習を独立した課題として整理   |
-| 2   | リポジトリ、ワーキングツリー、コミット、インデックス       | Gitの初期設定、`git init`、ファイル作成、`git add`、`git commit`               | `term/`、`basics/`、`practice_basic/`のStep 0〜3                       | ほぼ既存教材で対応可能                       |
-| 3   | `status`、`diff`、`log`、`.gitignore`、VS Codeとの連携     | ファイルの修正、差分確認、`commit -a`、履歴確認、VS Codeからのコミット         | `basics/`、`practice_basic/`のStep 4〜7                                | ほぼ既存教材で対応可能                       |
-| 4   | ブランチの目的、HEAD、ブランチの作成・切り替え             | 複数ブランチを作り、別々の変更をコミットして履歴を確認                         | `branch/`、`internals/`のHEADと参照                                    | 新規演習が必要                               |
-| 5   | マージ、fast-forward、マージコミット、衝突                 | マージの実行、中止、衝突の確認と解決                                           | `branch/`、`practice_advanced/`の課題2                                 | 既存教材を独立回として調整                   |
-| 6   | リベースの仕組み、マージとの違い、対話的リベース           | コミットの並べ替え、リベース中の衝突解決                                       | `branch/`、`advanced/`、`practice_advanced/`の課題3・4                 | 演習量が多いため一部を発展課題へ移す         |
-| 7   | Gitのトラブルシューティング                                | `commit --amend`、`restore`、`restore --staged`、`stash`、必要に応じて`bisect` | `advanced/`、`practice_advanced/`の課題1・発展課題                     | `restore`と`stash`の短い演習を追加           |
-| 8   | 認証、公開鍵認証、SSH、パスフレーズ、多要素認証            | GitHubアカウント確認、SSH鍵の作成・登録、接続確認                              | `ssh/`、`practice_github_basic/`の課題1 Step 1〜4                      | PC室向け手順の更新が必要                     |
-| 9   | リモートリポジトリ、clone、push、fetch、pull、上流ブランチ | GitHubでリポジトリを作成し、clone、commit、pushする                            | `remote/`、`practice_github_basic/`の課題1 Step 5〜6・課題2            | 既存教材を整理して対応可能                   |
-| 10  | Issueによる課題管理、ブランチを使った開発フロー            | Issue作成、対応ブランチ作成、修正、push、Issueのクローズ                       | `practice_github_basic/`の課題3                                        | Issueとコミットの関連付けを追加してもよい    |
-| 11  | GitHub Projectsとチーム開発、作業の可視化                  | Project作成、Issueの登録、担当・状態の管理、ブランチでの対応                   | `practice_github_basic/`の課題4                                        | GitHubの画面変更に合わせた更新が必要         |
-| 12  | fork、プルリクエスト、レビュー、GitHub Pages、デプロイ     | 前半でプルリクエスト、後半でMNISTをGitHub Pagesへ公開                          | `practice_github_basic/`の発展課題、`practice_github_advanced/`の課題1 | 60分に収まるよう手順の簡略化が必要           |
-| 13  | WebページとGitHub Pages、ゲームの構造、シナリオ記法        | ゲーム用リポジトリのfork・clone・Pages設定、シナリオ修正、ローカル確認         | `practice_github_advanced/`の課題2 Step 1〜5                           | 現行のゲーム作成演習を前後編に分割           |
-| 14  | 継続的な開発、公開前の確認、成果物の説明                   | オリジナルゲーム作成、commit・push、デプロイ、動作確認、提出または相互試遊     | `practice_github_advanced/`の課題2 Step 6〜7                           | 発表・相互レビューを行う場合は評価基準を追加 |
+1. バージョン管理とは
+   - バージョン管理の必要性
+   - Gitの概要
+   - コマンドライン入門
+   - 演習：Gitの初期設定
+   - 演習：最初のリポジトリ作成(`git init`, `git add`, `git commit`)
+1. Gitの基礎
+   - 初期化(`git init`)
+   - 状態の確認(`git status`)
+   - ステージング(`git add`)
+   - コミット(`git commit`)
+   - 歴史の確認(`git log`)
+   - 差分の確認(`git diff`)
+1. ブランチの作成、切り替え、マージ
+   - マージ(`git merge`)
+   - Squash and merge
+   - Fast forwardマージ
+   - FFできる場合でもマージコミットを作る
+   - 衝突の解決
+1. リベース
+   - コミットの並び替え(`git rebase -i`)
+   - リベース中の衝突の解決
+1. Gitのトラブルシューティング
+   - `commit --amend`
+   - `restore`
+   - `restore --staged`
+   - `stash`
+1. Gitを使ったデバッグ
+   - ソフトウェアのデバッグについて
+   - `git blame`
+   - `git bisect`
+1. 公開鍵認証
+   - 公開鍵認証の説明
+   - 公開鍵認証について動作確認
+   - GitHubのアカウント作成
+   - 開通確認(`ssh -T`)
+   - git cloneしてローカルで修正してpushの確認
+1. リモートリポジトリの操作
+   - 追跡ブランチの説明
+   - `git remote`の操作
+   - httpsでcloneしてからsshに修正
+1. Issueによる課題管理
+   - 演習：Issueとブランチの連携
+   - 演習：KanbanによるProject管理
+1. フォーク
+   - forkしてからclone
+   - プルリクエストの作成
+1. GitHub Pagesのデプロイ
+   - uv による環境構築
+   - 機械学習の実行
+   - Live Serverによるローカルの動作確認
+   - GitHub Pagesへのデプロイ
+1. ブラウザゲーム開発(1)
+1. ブラウザゲーム開発(2)
 
-## 構成の考え方
+## 方針
 
 - 第1〜3回で、全員がGitの基本操作を一通り経験する。
 - 第4〜7回で、ブランチ、マージ、リベース、復旧操作を段階的に扱う。
 - 第8〜12回で、GitHub上の一人開発から複数人開発、デプロイへ進む。
 - 第13・14回は、既存のゲーム作成を「環境構築・基本改造」と「独自開発・公開」に分割する。
-- `internals/`は独立回にせず、HEAD、ブランチ、リモート追跡ブランチを説明する際に必要な部分を抜粋して使う。
-- `git blame`や`git bisect`は、進度の速い学生向けの発展課題として利用する。
-
-## 新規作成・再構成が必要な教材
-
-特に新規作成が必要なのは、第4回のブランチ基本演習と、第7回の`restore`・`stash`演習である。また、第12回はプルリクエストとMNISTを60分の演習時間内で扱えるよう、既存手順の短縮版を用意する必要がある。
